@@ -43,7 +43,7 @@ public class Hotel {
 	}
 	@Override
 	public String toString() {
-		return "Hotel [hotelName=" + hotelName + ", regularCustomerRate=" + regularCustomerRate + ", totalRate="
-				+ totalRate + "]";
+		return "Hotel [hotelName=" + hotelName + ", weekDayRate=" + weekDayRate + ", weeeEndRate="
+				+ weekendRate + "]";
 	}
 }
