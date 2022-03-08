@@ -1,4 +1,6 @@
 package Bridgelabz.HotelReservationSystem;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -12,5 +14,17 @@ public class AddNewHotelTest {
 	    boolean checkIfAdded =  hotelReservationSystem.addHotel(hotelCheck);
 		Assert.assertEquals(checkIfAdded, true);
 	}
+	 @Test
+	    public void testForcheapestHotelWithinADateRange() {
+	        AddNewHotel service = new AddNewHotel();
+	        Hotel hotel1 = new Hotel("Lakewood", 220);
+	        Hotel hotel2 = new Hotel("Bridgewood", 160);
+	        Hotel hotel3 = new Hotel("Ridgewood", 220);
+	        service.addHotel(hotel1);
+	        service.addHotel(hotel2);
+	        service.addHotel(hotel3);
+	        Hotel hotel = service.findCheapestHotel("10Sep2020","11Sep2020");
+            Assert.assertEquals("Lakewood", hotel.getHotelName());  
+	    }
 	}
 
