@@ -11,6 +11,8 @@ public class HotelInformation {
 	private int totalRate;
 	private int weekendRate;
 	private int weekdayRate;
+	private int rating;
+
 	public String getName() {
 		return hotelName;
 	}
@@ -84,4 +86,12 @@ public class HotelInformation {
 				"\n Hotel weekday Rates : " + weekdayRate ;
 
 	}
+	public int getRating() {
+		return rating;
+	}
+
+	public void setRating(int rating) {
+		this.rating = rating;
+	}
+
 }
