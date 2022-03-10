@@ -1,29 +1,40 @@
 package Bridgelabz.HotelReservationSystem;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 public class AddNewHotelTest {
-	@Test
-	public void toAddHotelHotel_Should_returnTrue() {
-		AddNewHotel hotelReservationSystem = new AddNewHotel();
-		Hotel hotelCheck = new Hotel("Bridgewood", 150,90);
-		Hotel hotelCheck1 = new Hotel("Lakewood", 110,67);
-		Hotel hotelCheck2 = new Hotel("Ridgewood", 220,99);
-	    boolean checkIfAdded =  hotelReservationSystem.addHotel("Bridgewood", 150,90);
-		Assert.assertEquals(checkIfAdded, true);
+
+	AddNewHotel hotel = null;
+	@Before
+	public void initialization() {
+		hotel = new AddNewHotel();
 	}
-	 @Test
-	    public void testForcheapestHotelWithinADateRange() {
-	        AddNewHotel service = new AddNewHotel();
-	        service.addHotel("Lakewood", 220,67);
-	        service.addHotel("Bridgewood", 160,98);
-	        service.addHotel("Ridgewood", 220,90);
-	        Hotel hotel = service.findCheapestHotel("10Sep2020","11Sep2020");
-            Assert.assertEquals("Bridgewood", hotel.getHotelName());  
-	    
-		}
+//	@Test
+//	public void givenHotelInfo_shouldAddHotelInList(){
+//       boolean result = hotel.addHotel();
+//       Assert.assertTrue(result);
+//	}
+	/*@Test
+	public void givenHotelInfo_shouldReturnChepestHotel(){
+		for(int i=0;i<3;i++)
+			 hotel.addHotel();
+       ArrayList<Hotel> arr= hotel.findCheapestHotel("10Sep2021", "11Sep2021");
+       int expected = arr.get(0).getTotalRate();
+       Assert.assertEquals(220, expected);
+	}*/
+	@Test
+	public void givenHotelInfo_shouldReturnWeekdaysWeekendsRates() {
+		for(int i=1;i<=3;i++)
+			hotel.addHotel();
+      ArrayList<Hotel> arr = hotel.findCheapestHotel("10Sep2021", "11Sep2021");
+      String expected = arr.get(0).getHotelName();
+      Assert.assertEquals("Lakewood", "Bridgewood" , expected);
+		
+	}
 	 
 	}
 
